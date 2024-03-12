@@ -50,7 +50,7 @@ git clone https://github.com/stevemats/House_Price_Prediction.git
 pip install -r requirements. txt
 ```
 
-```sh
+```Python
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -62,7 +62,7 @@ import seaborn as sns
 ...
 ```
 
-3. Place your dataset file(e.g., BostonHousing.csv) in the correct path(dataset folder) or redifine the path.
+3. Place your dataset file(e.g., BostonHousing.csv) in the correct path(dataset folder) or spacify the path.
 
 ```Python
 ...
@@ -76,3 +76,24 @@ def main():
 ```
 
 4. Run the main() function to execute the code.
+
+![alt text](./images/image.png)
+
+The linear regression model generates raw numerical output to represent the predicted price/value of the house=medv=target variable, then we format that figure to 2 decimal places.
+
+```Python
+...
+
+
+def predict_new_house_price(model, new_house_features):
+    """Predict the price of a new house"""
+    predicted_price = model.predict(new_house_features)
+    formatted_price = "${:,.2f}".format(predicted_price[0])
+    print("Predicted Price of the House:", formatted_price)
+
+...
+```
+
+#### Output sample
+
+![alt text](./images/image-1.png)
